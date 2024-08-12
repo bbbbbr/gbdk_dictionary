@@ -5,8 +5,8 @@ import re
 # - Filters to min/max length and splits it into separate word list files
 #   based on first letter and word length
 # - Each word has the first letter stripped (to save space) and all the words are
-#   concatenated into a single string, so that they can be indexed by
-#   word N is at: start of string + (N * 2)
+#   concatenated into a single string
+# - A given word N can be indexed by: start of letter dictionary + (N * Word Length)
 
 
 def process_word_list(file_path, min_length=0, max_length=None, output_folder='.'):
