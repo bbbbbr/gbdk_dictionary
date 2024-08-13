@@ -7,6 +7,11 @@
 #pragma bank 255
 
 
+#define FIRST_LETTER 'a'
+#define LAST_LETTER  'j'
+#define WORD_LEN 5u
+#define WORD_INC_SIZE (WORD_LEN - 1u)
+
 INCBIN(dict_5_a, "src/data/dict/5_a_words.txt")
 INCBIN(dict_5_b, "src/data/dict/5_b_words.txt")
 INCBIN(dict_5_c, "src/data/dict/5_c_words.txt")
@@ -41,12 +46,6 @@ const static dict_entry_t dictionary[A_Z_COUNT] = {
     {.p_wordlist = (wordlist_t)&dict_5_i, .len = (uint16_t)INCBIN_SIZE(dict_5_i) },
     {.p_wordlist = (wordlist_t)&dict_5_j, .len = (uint16_t)INCBIN_SIZE(dict_5_j) },
 };
-
-#define WORD_LEN 5u
-#define WORD_INC_SIZE (WORD_LEN - 1u)
-
-#define FIRST_LETTER 'a'
-#define LAST_LETTER  'j'
 
 
 bool dict_check_word_5_aj(const char * word) BANKED {

@@ -6,35 +6,24 @@
 
 #pragma bank 255
 
-
-INCBIN(dict_6_d, "src/data/dict/6_d_words.txt")
-INCBIN(dict_6_e, "src/data/dict/6_e_words.txt")
-INCBIN(dict_6_f, "src/data/dict/6_f_words.txt")
-INCBIN(dict_6_g, "src/data/dict/6_g_words.txt")
-INCBIN(dict_6_h, "src/data/dict/6_h_words.txt")
-
-INCBIN_EXTERN(dict_6_d)
-INCBIN_EXTERN(dict_6_e)
-INCBIN_EXTERN(dict_6_f)
-INCBIN_EXTERN(dict_6_g)
-INCBIN_EXTERN(dict_6_h)
-
-const static dict_entry_t dictionary[A_Z_COUNT] = {
-    {.p_wordlist = (wordlist_t)&dict_6_d, .len = (uint16_t)INCBIN_SIZE(dict_6_d) },
-    {.p_wordlist = (wordlist_t)&dict_6_e, .len = (uint16_t)INCBIN_SIZE(dict_6_e) },
-    {.p_wordlist = (wordlist_t)&dict_6_f, .len = (uint16_t)INCBIN_SIZE(dict_6_f) },
-    {.p_wordlist = (wordlist_t)&dict_6_g, .len = (uint16_t)INCBIN_SIZE(dict_6_g) },
-    {.p_wordlist = (wordlist_t)&dict_6_h, .len = (uint16_t)INCBIN_SIZE(dict_6_h) },
-};
-
+#define FIRST_LETTER 'a'
+#define LAST_LETTER  'b'
 #define WORD_LEN 6u
 #define WORD_INC_SIZE (WORD_LEN - 1u)
 
-#define FIRST_LETTER 'd'
-#define LAST_LETTER  'h'
+INCBIN(dict_6_a, "src/data/dict/6_a_words.txt")
+INCBIN(dict_6_b, "src/data/dict/6_b_words.txt")
+
+INCBIN_EXTERN(dict_6_a)
+INCBIN_EXTERN(dict_6_b)
+
+const static dict_entry_t dictionary[A_Z_COUNT] = {
+    {.p_wordlist = (wordlist_t)&dict_6_a, .len = (uint16_t)INCBIN_SIZE(dict_6_a) },
+    {.p_wordlist = (wordlist_t)&dict_6_b, .len = (uint16_t)INCBIN_SIZE(dict_6_b) },
+};
 
 
-bool dict_check_word_6_dh(const char * word) BANKED {
+bool dict_check_word_6_ab(const char * word) BANKED {
 
     static wordlist_t p_words;
     static uint16_t dict_word_count;

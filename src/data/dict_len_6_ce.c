@@ -7,28 +7,27 @@
 #pragma bank 255
 
 
-INCBIN(dict_6_a, "src/data/dict/6_a_words.txt")
-INCBIN(dict_6_b, "src/data/dict/6_b_words.txt")
-INCBIN(dict_6_c, "src/data/dict/6_c_words.txt")
-
-INCBIN_EXTERN(dict_6_a)
-INCBIN_EXTERN(dict_6_b)
-INCBIN_EXTERN(dict_6_c)
-
-const static dict_entry_t dictionary[A_Z_COUNT] = {
-    {.p_wordlist = (wordlist_t)&dict_6_a, .len = (uint16_t)INCBIN_SIZE(dict_6_a) },
-    {.p_wordlist = (wordlist_t)&dict_6_b, .len = (uint16_t)INCBIN_SIZE(dict_6_b) },
-    {.p_wordlist = (wordlist_t)&dict_6_c, .len = (uint16_t)INCBIN_SIZE(dict_6_c) },
-};
-
+#define FIRST_LETTER 'c'
+#define LAST_LETTER  'e'
 #define WORD_LEN 6u
 #define WORD_INC_SIZE (WORD_LEN - 1u)
 
-#define FIRST_LETTER 'a'
-#define LAST_LETTER  'c'
+INCBIN(dict_6_c, "src/data/dict/6_c_words.txt")
+INCBIN(dict_6_d, "src/data/dict/6_d_words.txt")
+INCBIN(dict_6_e, "src/data/dict/6_e_words.txt")
+
+INCBIN_EXTERN(dict_6_c)
+INCBIN_EXTERN(dict_6_d)
+INCBIN_EXTERN(dict_6_e)
+
+const static dict_entry_t dictionary[A_Z_COUNT] = {
+    {.p_wordlist = (wordlist_t)&dict_6_c, .len = (uint16_t)INCBIN_SIZE(dict_6_c) },
+    {.p_wordlist = (wordlist_t)&dict_6_d, .len = (uint16_t)INCBIN_SIZE(dict_6_d) },
+    {.p_wordlist = (wordlist_t)&dict_6_e, .len = (uint16_t)INCBIN_SIZE(dict_6_e) },
+};
 
 
-bool dict_check_word_6_ac(const char * word) BANKED {
+bool dict_check_word_6_ce(const char * word) BANKED {
 
     static wordlist_t p_words;
     static uint16_t dict_word_count;

@@ -6,6 +6,11 @@
 
 #pragma bank 255
 
+#define FIRST_LETTER 'v'
+#define LAST_LETTER  'z'
+#define WORD_LEN 6u
+#define WORD_INC_SIZE (WORD_LEN - 1u)
+
 INCBIN(dict_6_v, "src/data/dict/6_v_words.txt")
 INCBIN(dict_6_w, "src/data/dict/6_w_words.txt")
 INCBIN(dict_6_x, "src/data/dict/6_x_words.txt")
@@ -25,13 +30,6 @@ const static dict_entry_t dictionary[A_Z_COUNT] = {
     {.p_wordlist = (wordlist_t)&dict_6_y, .len = (uint16_t)INCBIN_SIZE(dict_6_y) },
     {.p_wordlist = (wordlist_t)&dict_6_z, .len = (uint16_t)INCBIN_SIZE(dict_6_z) }
 };
-
-
-#define WORD_LEN 6u
-#define WORD_INC_SIZE (WORD_LEN - 1u)
-
-#define FIRST_LETTER 'v'
-#define LAST_LETTER  'z'
 
 
 bool dict_check_word_6_vz(const char * word) BANKED {

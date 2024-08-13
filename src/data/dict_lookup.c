@@ -31,8 +31,9 @@ bool dict_check_word(const char * str) BANKED {
                 else if (str[0] <= 's') result = dict_check_word_5_ks(str);
                 else                    result = dict_check_word_5_tz(str);
                 break;
-        case 6: if      (str[0] <= 'c') result = dict_check_word_6_ac(str);
-                else if (str[0] <= 'h') result = dict_check_word_6_dh(str);
+        case 6: if      (str[0] <= 'b') result = dict_check_word_6_ab(str);
+                else if (str[0] <= 'e') result = dict_check_word_6_ce(str);
+                else if (str[0] <= 'h') result = dict_check_word_6_fh(str);
                 else if (str[0] <= 'o') result = dict_check_word_6_io(str);
                 else if (str[0] <= 'r') result = dict_check_word_6_pr(str);
                 else if (str[0] <= 'u') result = dict_check_word_6_su(str);
