@@ -2,21 +2,21 @@
 #include <gbdk/incbin.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include "common.h"
+#include "dict_common.h"
 
 #pragma bank 255
 
 
-INCBIN(dict_5_a, "src/dict/5_a_words.txt")
-INCBIN(dict_5_b, "src/dict/5_b_words.txt")
-INCBIN(dict_5_c, "src/dict/5_c_words.txt")
-INCBIN(dict_5_d, "src/dict/5_d_words.txt")
-INCBIN(dict_5_e, "src/dict/5_e_words.txt")
-INCBIN(dict_5_f, "src/dict/5_f_words.txt")
-INCBIN(dict_5_g, "src/dict/5_g_words.txt")
-INCBIN(dict_5_h, "src/dict/5_h_words.txt")
-INCBIN(dict_5_i, "src/dict/5_i_words.txt")
-INCBIN(dict_5_j, "src/dict/5_j_words.txt")
+INCBIN(dict_5_a, "src/data/dict/5_a_words.txt")
+INCBIN(dict_5_b, "src/data/dict/5_b_words.txt")
+INCBIN(dict_5_c, "src/data/dict/5_c_words.txt")
+INCBIN(dict_5_d, "src/data/dict/5_d_words.txt")
+INCBIN(dict_5_e, "src/data/dict/5_e_words.txt")
+INCBIN(dict_5_f, "src/data/dict/5_f_words.txt")
+INCBIN(dict_5_g, "src/data/dict/5_g_words.txt")
+INCBIN(dict_5_h, "src/data/dict/5_h_words.txt")
+INCBIN(dict_5_i, "src/data/dict/5_i_words.txt")
+INCBIN(dict_5_j, "src/data/dict/5_j_words.txt")
 
 INCBIN_EXTERN(dict_5_a)
 INCBIN_EXTERN(dict_5_b)

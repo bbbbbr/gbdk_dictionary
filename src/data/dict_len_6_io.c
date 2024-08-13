@@ -2,33 +2,45 @@
 #include <gbdk/incbin.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include "common.h"
+#include "dict_common.h"
 
 #pragma bank 255
 
+INCBIN(dict_6_i, "src/data/dict/6_i_words.txt")
+INCBIN(dict_6_j, "src/data/dict/6_j_words.txt")
+INCBIN(dict_6_k, "src/data/dict/6_k_words.txt")
+INCBIN(dict_6_l, "src/data/dict/6_l_words.txt")
+INCBIN(dict_6_m, "src/data/dict/6_m_words.txt")
+INCBIN(dict_6_n, "src/data/dict/6_n_words.txt")
+INCBIN(dict_6_o, "src/data/dict/6_o_words.txt")
 
-INCBIN(dict_6_a, "src/dict/6_a_words.txt")
-INCBIN(dict_6_b, "src/dict/6_b_words.txt")
-INCBIN(dict_6_c, "src/dict/6_c_words.txt")
-
-INCBIN_EXTERN(dict_6_a)
-INCBIN_EXTERN(dict_6_b)
-INCBIN_EXTERN(dict_6_c)
+INCBIN_EXTERN(dict_6_i)
+INCBIN_EXTERN(dict_6_j)
+INCBIN_EXTERN(dict_6_k)
+INCBIN_EXTERN(dict_6_l)
+INCBIN_EXTERN(dict_6_m)
+INCBIN_EXTERN(dict_6_n)
+INCBIN_EXTERN(dict_6_o)
 
 const static dict_entry_t dictionary[A_Z_COUNT] = {
-    {.p_wordlist = (wordlist_t)&dict_6_a, .len = (uint16_t)INCBIN_SIZE(dict_6_a) },
-    {.p_wordlist = (wordlist_t)&dict_6_b, .len = (uint16_t)INCBIN_SIZE(dict_6_b) },
-    {.p_wordlist = (wordlist_t)&dict_6_c, .len = (uint16_t)INCBIN_SIZE(dict_6_c) },
+    {.p_wordlist = (wordlist_t)&dict_6_i, .len = (uint16_t)INCBIN_SIZE(dict_6_i) },
+    {.p_wordlist = (wordlist_t)&dict_6_j, .len = (uint16_t)INCBIN_SIZE(dict_6_j) },
+    {.p_wordlist = (wordlist_t)&dict_6_k, .len = (uint16_t)INCBIN_SIZE(dict_6_k) },
+    {.p_wordlist = (wordlist_t)&dict_6_l, .len = (uint16_t)INCBIN_SIZE(dict_6_l) },
+    {.p_wordlist = (wordlist_t)&dict_6_m, .len = (uint16_t)INCBIN_SIZE(dict_6_m) },
+    {.p_wordlist = (wordlist_t)&dict_6_n, .len = (uint16_t)INCBIN_SIZE(dict_6_n) },
+    {.p_wordlist = (wordlist_t)&dict_6_o, .len = (uint16_t)INCBIN_SIZE(dict_6_o) },
 };
+
 
 #define WORD_LEN 6u
 #define WORD_INC_SIZE (WORD_LEN - 1u)
 
-#define FIRST_LETTER 'a'
-#define LAST_LETTER  'c'
+#define FIRST_LETTER 'i'
+#define LAST_LETTER  'o'
 
 
-bool dict_check_word_6_ac(const char * word) BANKED {
+bool dict_check_word_6_io(const char * word) BANKED {
 
     static wordlist_t p_words;
     static uint16_t dict_word_count;

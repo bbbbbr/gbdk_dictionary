@@ -53,19 +53,21 @@ PROJECTNAME = word_lookup
 
 
 # EXT?=gb # Only sets extension to default (game boy .gb) if not populated
-SRCDIR      = src
-OBJDIR      = obj/$(EXT)
-RESOBJSRC   = obj/$(EXT)/res
-RESDIR      = res
-BUILD_DIR   = build
-BINDIR      = $(BUILD_DIR)/$(EXT)
+SRCDIR       = src
+SRCDIR_DICT  = src/data
+OBJDIR       = obj/$(EXT)
+RESOBJSRC    = obj/$(EXT)/res
+RESDIR       = res
+BUILD_DIR    = build
+BINDIR       = $(BUILD_DIR)/$(EXT)
 TOOLS_DIR    = tools
-SRC_DICT_DIR = $(SRCDIR)/dict
-MKDIRS       = $(OBJDIR) $(BINDIR) $(RESOBJSRC) $(TOOLS_DIR) $(SRC_DICT_DIR)  # See bottom of Makefile for directory auto-creation
+SRC_DICT_RESDIR = $(SRCDIR_DICT)/dict
+
+MKDIRS       = $(OBJDIR) $(BINDIR) $(RESOBJSRC) $(TOOLS_DIR) $(SRC_DICT_RESDIR)  # See bottom of Makefile for directory auto-creation
 OUTPUT_NAME  = $(BINDIR)/$(PROJECTNAME).$(EXT)
 
 BINS	    = $(OBJDIR)/$(PROJECTNAME).$(EXT)
-CSOURCES    = $(foreach dir,$(SRCDIR),$(notdir $(wildcard $(dir)/*.c))) $(foreach dir,$(RESDIR),$(notdir $(wildcard $(dir)/*.c)))
+CSOURCES    = $(foreach dir,$(SRCDIR),$(notdir $(wildcard $(dir)/*.c))) $(foreach dir,$(RESDIR),$(notdir $(wildcard $(dir)/*.c))) $(foreach dir,$(SRCDIR_DICT),$(notdir $(wildcard $(dir)/*.c)))
 ASMSOURCES  = $(foreach dir,$(SRCDIR),$(notdir $(wildcard $(dir)/*.s)))
 OBJS        = $(CSOURCES:%.c=$(OBJDIR)/%.o) $(ASMSOURCES:%.s=$(OBJDIR)/%.o)
 
@@ -84,6 +86,10 @@ DEPS = $(OBJS:%.o=%.d)
 
 # Compile .c files in "src/" to .o object files
 $(OBJDIR)/%.o:	$(SRCDIR)/%.c
+	$(LCC) $(LCCFLAGS) $(CFLAGS) -c -o $@ $<
+
+# Compile .c files in SRCDIR_DICT to .o object files
+$(OBJDIR)/%.o:	$(SRCDIR_DICT)/%.c
 	$(LCC) $(LCCFLAGS) $(CFLAGS) -c -o $@ $<
 
 # Compile .c files in "res/" to .o object files
@@ -114,9 +120,13 @@ clean:
 dicttionary: dict
 
 dict:
-	$(info $(shell mkdir -p $(SRC_DIR)))
-	$(info $(shell mkdir -p $(SRC_DICT_DIR)))
-	python3 $(TOOLS_DIR)/wordlist_split_compact.py $(TOOLS_DIR)/wordlist.txt --min 3 --max 6 --output_folder $(SRC_DICT_DIR)
+	$(info $(shell mkdir -p $(SRCDIR)))
+	$(info $(shell mkdir -p $(SRCDIR_DICT)))
+	$(info $(shell mkdir -p $(SRC_DICT_RESDIR)))
+	python3 $(TOOLS_DIR)/wordlist_split_compact.py $(TOOLS_DIR)/wordlist.txt --min 3 --max 6 --output_folder $(SRC_DICT_RESDIR)
+
+dict-clean:
+	rm -rf $(SRC_DICT_RESDIR)
 
 romusage:
 	romusage $(BINDIR)/gb/$(PROJECTNAME).gb -sRp -g 

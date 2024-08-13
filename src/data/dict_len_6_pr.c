@@ -2,45 +2,33 @@
 #include <gbdk/incbin.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include "common.h"
+#include "dict_common.h"
 
 #pragma bank 255
 
-INCBIN(dict_6_i, "src/dict/6_i_words.txt")
-INCBIN(dict_6_j, "src/dict/6_j_words.txt")
-INCBIN(dict_6_k, "src/dict/6_k_words.txt")
-INCBIN(dict_6_l, "src/dict/6_l_words.txt")
-INCBIN(dict_6_m, "src/dict/6_m_words.txt")
-INCBIN(dict_6_n, "src/dict/6_n_words.txt")
-INCBIN(dict_6_o, "src/dict/6_o_words.txt")
+INCBIN(dict_6_p, "src/data/dict/6_p_words.txt")
+INCBIN(dict_6_q, "src/data/dict/6_q_words.txt")
+INCBIN(dict_6_r, "src/data/dict/6_r_words.txt")
 
-INCBIN_EXTERN(dict_6_i)
-INCBIN_EXTERN(dict_6_j)
-INCBIN_EXTERN(dict_6_k)
-INCBIN_EXTERN(dict_6_l)
-INCBIN_EXTERN(dict_6_m)
-INCBIN_EXTERN(dict_6_n)
-INCBIN_EXTERN(dict_6_o)
+INCBIN_EXTERN(dict_6_p)
+INCBIN_EXTERN(dict_6_q)
+INCBIN_EXTERN(dict_6_r)
 
 const static dict_entry_t dictionary[A_Z_COUNT] = {
-    {.p_wordlist = (wordlist_t)&dict_6_i, .len = (uint16_t)INCBIN_SIZE(dict_6_i) },
-    {.p_wordlist = (wordlist_t)&dict_6_j, .len = (uint16_t)INCBIN_SIZE(dict_6_j) },
-    {.p_wordlist = (wordlist_t)&dict_6_k, .len = (uint16_t)INCBIN_SIZE(dict_6_k) },
-    {.p_wordlist = (wordlist_t)&dict_6_l, .len = (uint16_t)INCBIN_SIZE(dict_6_l) },
-    {.p_wordlist = (wordlist_t)&dict_6_m, .len = (uint16_t)INCBIN_SIZE(dict_6_m) },
-    {.p_wordlist = (wordlist_t)&dict_6_n, .len = (uint16_t)INCBIN_SIZE(dict_6_n) },
-    {.p_wordlist = (wordlist_t)&dict_6_o, .len = (uint16_t)INCBIN_SIZE(dict_6_o) },
+    {.p_wordlist = (wordlist_t)&dict_6_p, .len = (uint16_t)INCBIN_SIZE(dict_6_p) },
+    {.p_wordlist = (wordlist_t)&dict_6_q, .len = (uint16_t)INCBIN_SIZE(dict_6_q) },
+    {.p_wordlist = (wordlist_t)&dict_6_r, .len = (uint16_t)INCBIN_SIZE(dict_6_r) },
 };
 
 
 #define WORD_LEN 6u
 #define WORD_INC_SIZE (WORD_LEN - 1u)
 
-#define FIRST_LETTER 'i'
-#define LAST_LETTER  'o'
+#define FIRST_LETTER 'p'
+#define LAST_LETTER  'r'
 
 
-bool dict_check_word_6_io(const char * word) BANKED {
+bool dict_check_word_6_pr(const char * word) BANKED {
 
     static wordlist_t p_words;
     static uint16_t dict_word_count;

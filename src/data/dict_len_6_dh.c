@@ -2,50 +2,39 @@
 #include <gbdk/incbin.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include "common.h"
+#include "dict_common.h"
 
 #pragma bank 255
 
 
-INCBIN(dict_5_k, "src/dict/5_k_words.txt")
-INCBIN(dict_5_l, "src/dict/5_l_words.txt")
-INCBIN(dict_5_m, "src/dict/5_m_words.txt")
-INCBIN(dict_5_n, "src/dict/5_n_words.txt")
-INCBIN(dict_5_o, "src/dict/5_o_words.txt")
-INCBIN(dict_5_p, "src/dict/5_p_words.txt")
-INCBIN(dict_5_q, "src/dict/5_q_words.txt")
-INCBIN(dict_5_r, "src/dict/5_r_words.txt")
-INCBIN(dict_5_s, "src/dict/5_s_words.txt")
+INCBIN(dict_6_d, "src/data/dict/6_d_words.txt")
+INCBIN(dict_6_e, "src/data/dict/6_e_words.txt")
+INCBIN(dict_6_f, "src/data/dict/6_f_words.txt")
+INCBIN(dict_6_g, "src/data/dict/6_g_words.txt")
+INCBIN(dict_6_h, "src/data/dict/6_h_words.txt")
 
-INCBIN_EXTERN(dict_5_k)
-INCBIN_EXTERN(dict_5_l)
-INCBIN_EXTERN(dict_5_m)
-INCBIN_EXTERN(dict_5_n)
-INCBIN_EXTERN(dict_5_o)
-INCBIN_EXTERN(dict_5_p)
-INCBIN_EXTERN(dict_5_q)
-INCBIN_EXTERN(dict_5_r)
-INCBIN_EXTERN(dict_5_s)
+INCBIN_EXTERN(dict_6_d)
+INCBIN_EXTERN(dict_6_e)
+INCBIN_EXTERN(dict_6_f)
+INCBIN_EXTERN(dict_6_g)
+INCBIN_EXTERN(dict_6_h)
 
 const static dict_entry_t dictionary[A_Z_COUNT] = {
-    {.p_wordlist = (wordlist_t)&dict_5_k, .len = (uint16_t)INCBIN_SIZE(dict_5_k) },
-    {.p_wordlist = (wordlist_t)&dict_5_l, .len = (uint16_t)INCBIN_SIZE(dict_5_l) },
-    {.p_wordlist = (wordlist_t)&dict_5_m, .len = (uint16_t)INCBIN_SIZE(dict_5_m) },
-    {.p_wordlist = (wordlist_t)&dict_5_n, .len = (uint16_t)INCBIN_SIZE(dict_5_n) },
-    {.p_wordlist = (wordlist_t)&dict_5_o, .len = (uint16_t)INCBIN_SIZE(dict_5_o) },
-    {.p_wordlist = (wordlist_t)&dict_5_p, .len = (uint16_t)INCBIN_SIZE(dict_5_p) },
-    {.p_wordlist = (wordlist_t)&dict_5_q, .len = (uint16_t)INCBIN_SIZE(dict_5_q) },
-    {.p_wordlist = (wordlist_t)&dict_5_r, .len = (uint16_t)INCBIN_SIZE(dict_5_r) },
-    {.p_wordlist = (wordlist_t)&dict_5_s, .len = (uint16_t)INCBIN_SIZE(dict_5_s) },
+    {.p_wordlist = (wordlist_t)&dict_6_d, .len = (uint16_t)INCBIN_SIZE(dict_6_d) },
+    {.p_wordlist = (wordlist_t)&dict_6_e, .len = (uint16_t)INCBIN_SIZE(dict_6_e) },
+    {.p_wordlist = (wordlist_t)&dict_6_f, .len = (uint16_t)INCBIN_SIZE(dict_6_f) },
+    {.p_wordlist = (wordlist_t)&dict_6_g, .len = (uint16_t)INCBIN_SIZE(dict_6_g) },
+    {.p_wordlist = (wordlist_t)&dict_6_h, .len = (uint16_t)INCBIN_SIZE(dict_6_h) },
 };
 
-#define WORD_LEN 5u
+#define WORD_LEN 6u
 #define WORD_INC_SIZE (WORD_LEN - 1u)
 
-#define FIRST_LETTER 'k'
-#define LAST_LETTER  's'
+#define FIRST_LETTER 'd'
+#define LAST_LETTER  'h'
 
-bool dict_check_word_5_ks(const char * word) BANKED {
+
+bool dict_check_word_6_dh(const char * word) BANKED {
 
     static wordlist_t p_words;
     static uint16_t dict_word_count;
@@ -66,13 +55,15 @@ bool dict_check_word_5_ks(const char * word) BANKED {
     const char third_letter  = word[2];
     const char fourth_letter = word[3];
     const char fifth_letter  = word[4];
+    const char sixth_letter  = word[5];
 
     while (dict_word_count--) {
         // Return true if a match was found, otherwise advance pointer to next word
         if ((second_letter == *p_words) &&
             (third_letter  == *(p_words + 1)) &&
             (fourth_letter == *(p_words + 2)) &&
-            (fifth_letter  == *(p_words + 3)) ) return true;
+            (fifth_letter  == *(p_words + 3)) &&
+            (sixth_letter  == *(p_words + 4)) ) return true;
         else p_words += WORD_INC_SIZE;
 
     // TODO: below prevents scanning the WHOLE list if not needed, but adds 2x overhead for short searches - Test on worse case 6 letters [s]

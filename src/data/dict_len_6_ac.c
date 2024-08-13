@@ -2,39 +2,33 @@
 #include <gbdk/incbin.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include "common.h"
+#include "dict_common.h"
 
 #pragma bank 255
 
-INCBIN(dict_6_v, "src/dict/6_v_words.txt")
-INCBIN(dict_6_w, "src/dict/6_w_words.txt")
-INCBIN(dict_6_x, "src/dict/6_x_words.txt")
-INCBIN(dict_6_y, "src/dict/6_y_words.txt")
-INCBIN(dict_6_z, "src/dict/6_z_words.txt")
 
-INCBIN_EXTERN(dict_6_v)
-INCBIN_EXTERN(dict_6_w)
-INCBIN_EXTERN(dict_6_x)
-INCBIN_EXTERN(dict_6_y)
-INCBIN_EXTERN(dict_6_z)
+INCBIN(dict_6_a, "src/data/dict/6_a_words.txt")
+INCBIN(dict_6_b, "src/data/dict/6_b_words.txt")
+INCBIN(dict_6_c, "src/data/dict/6_c_words.txt")
+
+INCBIN_EXTERN(dict_6_a)
+INCBIN_EXTERN(dict_6_b)
+INCBIN_EXTERN(dict_6_c)
 
 const static dict_entry_t dictionary[A_Z_COUNT] = {
-    {.p_wordlist = (wordlist_t)&dict_6_v, .len = (uint16_t)INCBIN_SIZE(dict_6_v) },
-    {.p_wordlist = (wordlist_t)&dict_6_w, .len = (uint16_t)INCBIN_SIZE(dict_6_w) },
-    {.p_wordlist = (wordlist_t)&dict_6_x, .len = (uint16_t)INCBIN_SIZE(dict_6_x) },
-    {.p_wordlist = (wordlist_t)&dict_6_y, .len = (uint16_t)INCBIN_SIZE(dict_6_y) },
-    {.p_wordlist = (wordlist_t)&dict_6_z, .len = (uint16_t)INCBIN_SIZE(dict_6_z) }
+    {.p_wordlist = (wordlist_t)&dict_6_a, .len = (uint16_t)INCBIN_SIZE(dict_6_a) },
+    {.p_wordlist = (wordlist_t)&dict_6_b, .len = (uint16_t)INCBIN_SIZE(dict_6_b) },
+    {.p_wordlist = (wordlist_t)&dict_6_c, .len = (uint16_t)INCBIN_SIZE(dict_6_c) },
 };
-
 
 #define WORD_LEN 6u
 #define WORD_INC_SIZE (WORD_LEN - 1u)
 
-#define FIRST_LETTER 'v'
-#define LAST_LETTER  'z'
+#define FIRST_LETTER 'a'
+#define LAST_LETTER  'c'
 
 
-bool dict_check_word_6_vz(const char * word) BANKED {
+bool dict_check_word_6_ac(const char * word) BANKED {
 
     static wordlist_t p_words;
     static uint16_t dict_word_count;

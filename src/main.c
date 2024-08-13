@@ -3,7 +3,7 @@
 #include <stdbool.h>
 #include <stdio.h>
 
-#include "dict_lookup.h"
+#include "data/dict_lookup.h"
 
 
 void test_word(const char * str) {

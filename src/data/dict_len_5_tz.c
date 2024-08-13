@@ -2,33 +2,43 @@
 #include <gbdk/incbin.h>
 #include <stdint.h>
 #include <stdbool.h>
-#include "common.h"
+#include "dict_common.h"
 
 #pragma bank 255
 
-INCBIN(dict_6_p, "src/dict/6_p_words.txt")
-INCBIN(dict_6_q, "src/dict/6_q_words.txt")
-INCBIN(dict_6_r, "src/dict/6_r_words.txt")
+INCBIN(dict_5_t, "src/data/dict/5_t_words.txt")
+INCBIN(dict_5_u, "src/data/dict/5_u_words.txt")
+INCBIN(dict_5_v, "src/data/dict/5_v_words.txt")
+INCBIN(dict_5_w, "src/data/dict/5_w_words.txt")
+INCBIN(dict_5_x, "src/data/dict/5_x_words.txt")
+INCBIN(dict_5_y, "src/data/dict/5_y_words.txt")
+INCBIN(dict_5_z, "src/data/dict/5_z_words.txt")
 
-INCBIN_EXTERN(dict_6_p)
-INCBIN_EXTERN(dict_6_q)
-INCBIN_EXTERN(dict_6_r)
+INCBIN_EXTERN(dict_5_t)
+INCBIN_EXTERN(dict_5_u)
+INCBIN_EXTERN(dict_5_v)
+INCBIN_EXTERN(dict_5_w)
+INCBIN_EXTERN(dict_5_x)
+INCBIN_EXTERN(dict_5_y)
+INCBIN_EXTERN(dict_5_z)
 
 const static dict_entry_t dictionary[A_Z_COUNT] = {
-    {.p_wordlist = (wordlist_t)&dict_6_p, .len = (uint16_t)INCBIN_SIZE(dict_6_p) },
-    {.p_wordlist = (wordlist_t)&dict_6_q, .len = (uint16_t)INCBIN_SIZE(dict_6_q) },
-    {.p_wordlist = (wordlist_t)&dict_6_r, .len = (uint16_t)INCBIN_SIZE(dict_6_r) },
+    {.p_wordlist = (wordlist_t)&dict_5_t, .len = (uint16_t)INCBIN_SIZE(dict_5_t) },
+    {.p_wordlist = (wordlist_t)&dict_5_u, .len = (uint16_t)INCBIN_SIZE(dict_5_u) },
+    {.p_wordlist = (wordlist_t)&dict_5_v, .len = (uint16_t)INCBIN_SIZE(dict_5_v) },
+    {.p_wordlist = (wordlist_t)&dict_5_w, .len = (uint16_t)INCBIN_SIZE(dict_5_w) },
+    {.p_wordlist = (wordlist_t)&dict_5_x, .len = (uint16_t)INCBIN_SIZE(dict_5_x) },
+    {.p_wordlist = (wordlist_t)&dict_5_y, .len = (uint16_t)INCBIN_SIZE(dict_5_y) },
+    {.p_wordlist = (wordlist_t)&dict_5_z, .len = (uint16_t)INCBIN_SIZE(dict_5_z) }
 };
 
-
-#define WORD_LEN 6u
+#define WORD_LEN 5u
 #define WORD_INC_SIZE (WORD_LEN - 1u)
 
-#define FIRST_LETTER 'p'
-#define LAST_LETTER  'r'
+#define FIRST_LETTER 't'
+#define LAST_LETTER  'z'
 
-
-bool dict_check_word_6_pr(const char * word) BANKED {
+bool dict_check_word_5_tz(const char * word) BANKED {
 
     static wordlist_t p_words;
     static uint16_t dict_word_count;
@@ -49,15 +59,13 @@ bool dict_check_word_6_pr(const char * word) BANKED {
     const char third_letter  = word[2];
     const char fourth_letter = word[3];
     const char fifth_letter  = word[4];
-    const char sixth_letter  = word[5];
 
     while (dict_word_count--) {
         // Return true if a match was found, otherwise advance pointer to next word
         if ((second_letter == *p_words) &&
             (third_letter  == *(p_words + 1)) &&
             (fourth_letter == *(p_words + 2)) &&
-            (fifth_letter  == *(p_words + 3)) &&
-            (sixth_letter  == *(p_words + 4)) ) return true;
+            (fifth_letter  == *(p_words + 3)) ) return true;
         else p_words += WORD_INC_SIZE;
 
     // TODO: below prevents scanning the WHOLE list if not needed, but adds 2x overhead for short searches - Test on worse case 6 letters [s]
