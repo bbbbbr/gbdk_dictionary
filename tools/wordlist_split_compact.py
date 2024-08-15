@@ -22,6 +22,31 @@ def process_word_list(file_path, min_length=0, max_length=None, output_folder='.
     # Convert to lowercase and sort
     lowercase_sorted_words = sorted([word.lower() for word in filtered_words])
     
+    # For testing and validation, split wordlist into 16K chunks and write them to files
+    # as packed null terminated strings with the number of words as the first entry in decimal ascii
+    chunk_threshold = 16000
+    chunk_count = 0
+    chunk_size = 0
+    chunk_num_words = 0
+    output_string = ''
+    list_len = len(lowercase_sorted_words)-1
+    for index, word in enumerate(lowercase_sorted_words):
+        chunk_size += len(word) + 1 # +1 is for the appended string terminator per word
+        chunk_num_words += 1
+        output_string += word + '\0'
+        if ((chunk_size >= chunk_threshold) or (index == list_len)):
+            # Write to file
+            filename = f"raw_wordlist_chunk_{chunk_count}.txt"
+            output_file_path = f"{output_folder}/{filename}"
+            with open(output_file_path, 'w') as outfile:
+                outfile.write("%d\0" % chunk_num_words)
+                outfile.write(output_string)
+            # Reset output string and counters
+            output_string = ''
+            chunk_count += 1
+            chunk_size = 0
+            chunk_num_words = 0
+    
     # Separate words by length and first letter
     groups = {}
     for word in lowercase_sorted_words:

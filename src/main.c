@@ -4,6 +4,10 @@
 #include <stdio.h>
 
 #include "data/dict_lookup.h"
+#include "test/test.h"
+
+// Perform a full test of the dictionary (slow!)
+// #define TEST_FULL_DICT
 
 
 void test_word(const char * str) {
@@ -13,7 +17,7 @@ void test_word(const char * str) {
 }
 
 
-void run_test(void) {
+void basic_test(void) {
 
     test_word("ace");
     test_word("coz");
@@ -49,6 +53,15 @@ void run_test(void) {
     test_word("zaddik");
     test_word("zzzzzz");
     test_word("ssssss");
+}
+
+
+void run_test(void) {
+    #ifdef TEST_FULL_DICT
+        test_entire_wordlist();
+    #else
+        basic_test();
+    #endif
 }
 
 

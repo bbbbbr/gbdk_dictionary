@@ -55,6 +55,7 @@ PROJECTNAME = word_lookup
 # EXT?=gb # Only sets extension to default (game boy .gb) if not populated
 SRCDIR       = src
 SRCDIR_DICT  = src/data
+SRCDIR_TEST  = src/test
 OBJDIR       = obj/$(EXT)
 RESOBJSRC    = obj/$(EXT)/res
 RESDIR       = res
@@ -67,7 +68,8 @@ MKDIRS       = $(OBJDIR) $(BINDIR) $(RESOBJSRC) $(TOOLS_DIR) $(SRC_DICT_RESDIR) 
 OUTPUT_NAME  = $(BINDIR)/$(PROJECTNAME).$(EXT)
 
 BINS	    = $(OBJDIR)/$(PROJECTNAME).$(EXT)
-CSOURCES    = $(foreach dir,$(SRCDIR),$(notdir $(wildcard $(dir)/*.c))) $(foreach dir,$(RESDIR),$(notdir $(wildcard $(dir)/*.c))) $(foreach dir,$(SRCDIR_DICT),$(notdir $(wildcard $(dir)/*.c)))
+CSOURCES    = $(foreach dir,$(SRCDIR),$(notdir $(wildcard $(dir)/*.c))) $(foreach dir,$(RESDIR),$(notdir $(wildcard $(dir)/*.c)))
+CSOURCES      += $(foreach dir,$(SRCDIR_DICT),$(notdir $(wildcard $(dir)/*.c))) $(foreach dir,$(SRCDIR_TEST),$(notdir $(wildcard $(dir)/*.c)))
 ASMSOURCES  = $(foreach dir,$(SRCDIR),$(notdir $(wildcard $(dir)/*.s)))
 OBJS        = $(CSOURCES:%.c=$(OBJDIR)/%.o) $(ASMSOURCES:%.s=$(OBJDIR)/%.o)
 
@@ -90,6 +92,10 @@ $(OBJDIR)/%.o:	$(SRCDIR)/%.c
 
 # Compile .c files in SRCDIR_DICT to .o object files
 $(OBJDIR)/%.o:	$(SRCDIR_DICT)/%.c
+	$(LCC) $(LCCFLAGS) $(CFLAGS) -c -o $@ $<
+
+# Compile .c files in SRCDIR_TEST to .o object files
+$(OBJDIR)/%.o:	$(SRCDIR_TEST)/%.c
 	$(LCC) $(LCCFLAGS) $(CFLAGS) -c -o $@ $<
 
 # Compile .c files in "res/" to .o object files
@@ -129,7 +135,7 @@ dict-clean:
 	rm -rf $(SRC_DICT_RESDIR)
 
 romusage:
-	romusage $(BINDIR)/gb/$(PROJECTNAME).gb -sRp -g 
+	romusage $(BINDIR)/gb/$(PROJECTNAME).gb -sRp -g
 
 # Include available build targets
 include Makefile.targets
