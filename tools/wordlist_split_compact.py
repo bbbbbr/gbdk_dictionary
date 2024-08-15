@@ -9,7 +9,7 @@ import re
 # - A given word N can be indexed by: start of letter dictionary + (N * Word Length)
 
 
-def process_word_list(file_path, min_length=0, max_length=None, output_folder='.'):
+def process_word_list(file_path, min_length=0, max_length=None, output_folder='.', test_output_folder='.'):
     # Read the word list from the file
     with open(file_path, 'r') as file:
         words = file.read().splitlines()
@@ -37,7 +37,7 @@ def process_word_list(file_path, min_length=0, max_length=None, output_folder='.
         if ((chunk_size >= chunk_threshold) or (index == list_len)):
             # Write to file
             filename = f"raw_wordlist_chunk_{chunk_count}.txt"
-            output_file_path = f"{output_folder}/{filename}"
+            output_file_path = f"{test_output_folder}/{filename}"
             with open(output_file_path, 'w') as outfile:
                 outfile.write("%d\0" % chunk_num_words)
                 outfile.write(output_string)
@@ -71,7 +71,8 @@ if __name__ == "__main__":
     parser.add_argument('--min',             type=int, default=0, help='Minimum word length')
     parser.add_argument('--max',             type=int, help='Maximum word length')
     parser.add_argument('--output_folder',   type=str, default='.', help='Folder to save output files (must exist)')
+    parser.add_argument('--test_output_folder',   type=str, default='.', help='Folder to save testing/validation output files (must exist)')
 
     args = parser.parse_args()
 
-    process_word_list(args.wordlist_textfile, args.min, args.max, args.output_folder)
+    process_word_list(args.wordlist_textfile, args.min, args.max, args.output_folder, args.test_output_folder)

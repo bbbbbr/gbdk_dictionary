@@ -62,9 +62,10 @@ RESDIR       = res
 BUILD_DIR    = build
 BINDIR       = $(BUILD_DIR)/$(EXT)
 TOOLS_DIR    = tools
-SRC_DICT_RESDIR = $(SRCDIR_DICT)/dict
+SRC_DICT_RESDIR      = $(SRCDIR_DICT)/dict
+SRC_TEST_DICT_RESDIR = $(SRCDIR_TEST)/dict
 
-MKDIRS       = $(OBJDIR) $(BINDIR) $(RESOBJSRC) $(TOOLS_DIR) $(SRC_DICT_RESDIR)  # See bottom of Makefile for directory auto-creation
+MKDIRS       = $(OBJDIR) $(BINDIR) $(RESOBJSRC) $(TOOLS_DIR) $(SRC_DICT_RESDIR) $(SRC_TEST_DICT_RESDIR)  # See bottom of Makefile for directory auto-creation
 OUTPUT_NAME  = $(BINDIR)/$(PROJECTNAME).$(EXT)
 
 BINS	    = $(OBJDIR)/$(PROJECTNAME).$(EXT)
@@ -129,10 +130,12 @@ dict:
 	$(info $(shell mkdir -p $(SRCDIR)))
 	$(info $(shell mkdir -p $(SRCDIR_DICT)))
 	$(info $(shell mkdir -p $(SRC_DICT_RESDIR)))
-	python3 $(TOOLS_DIR)/wordlist_split_compact.py $(TOOLS_DIR)/wordlist.txt --min 3 --max 6 --output_folder $(SRC_DICT_RESDIR)
+	$(info $(shell mkdir -p $(SRC_TEST_DICT_RESDIR)))
+	python3 $(TOOLS_DIR)/wordlist_split_compact.py $(TOOLS_DIR)/wordlist.txt --min 3 --max 6 --output_folder $(SRC_DICT_RESDIR) --test_output_folder $(SRC_TEST_DICT_RESDIR)
 
 dict-clean:
 	rm -rf $(SRC_DICT_RESDIR)
+	rm -rf $(SRC_TEST_DICT_RESDIR)
 
 romusage:
 	romusage $(BINDIR)/gb/$(PROJECTNAME).gb -sRp -g

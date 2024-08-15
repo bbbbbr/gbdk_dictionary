@@ -5,4 +5,4 @@
 
 #pragma bank 255
 
-INCBIN(raw_wordlist_chunk_0, "src/data/dict/raw_wordlist_chunk_0.txt")
+INCBIN(raw_wordlist_chunk_0, "src/test/dict/raw_wordlist_chunk_0.txt")
