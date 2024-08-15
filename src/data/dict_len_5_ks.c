@@ -75,7 +75,6 @@ bool dict_check_word_5_ks(const char * word) BANKED {
             (fifth_letter  == *(p_words + 3)) ) return true;
         else p_words += WORD_INC_SIZE;
 
-    // TODO: below prevents scanning the WHOLE list if not needed, but adds 2x overhead for short searches - Test on worse case 6 letters [s]
         // Don't scan the rest of the list if we've moved beyond the second letter in the word list
         if (*p_words > second_letter) return false;
     }

@@ -118,7 +118,7 @@ bool dict_check_word_3(const char * word) BANKED {
             (third_letter == *(p_words + 1)) ) return true;
         else p_words += WORD_INC_SIZE;
 
-    // TODO: below prevents scanning the WHOLE list if not needed, but adds 2x overhead for short searches - Test on worse case 6 letters [s]
+        // Not really needed for shorter lists:
         // Don't scan the rest of the list if we've moved beyond the second letter in the word list
         // if (*p_words > second_letter) return false;
     }
