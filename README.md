@@ -9,7 +9,7 @@ Bank 0 space as possible, since that space is sometimes in short very supply in 
 plugins.
 
 ### GB Studio example project
-EGVroom has provided an example GBStudio project (under `GBStudioLookUpDemo`) showing how to interface with and use the dictionary. A pre-built example ROM is included in the project under `GBStudioLookUpDemo/build/rom`.
+[Shane McCafferty / EGVroom](https://thalamusdigital.itch.io/) has provided an example GBStudio project (under [GBStudioLookUpDemo](GBStudioLookUpDemo) showing how to interface with and use the dictionary. A pre-built example ROM is included in the project under [GBStudioLookUpDemo/build/rom](GBStudioLookUpDemo/build/rom).
 
 ### License
 All code is released inther the Unlicense into the public domain, this includes the dictionary and the example GBStudio project.
@@ -22,9 +22,9 @@ The whole thing takes about 9 ROM banks.
 There is a matching test dictionary for validation in the example program which takes ~12 ROM banks. The test data is not meant to be included in user programs.
 
 ### Copying dictionary source files
-Copy the contents of the `src/data/` directory into the GBStudio `assets/engine/src/data/` directory.
+Copy the contents of the [src/data/](src/data/) directory into the GBStudio `assets/engine/src/data/`.
 
 ### Interfacing with the code
-See the `native_testfunc.c` example under `GBStudioLookUpDemo/assets/engine/src/data/sounds`.
+See the `native_testfunc.c` file for an example under [GBStudioLookUpDemo/assets/engine/src/data/](GBStudioLookUpDemo/assets/engine/src/data/).
 
 
