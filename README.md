@@ -9,7 +9,7 @@ Bank 0 space as possible, since that space is sometimes in short very supply in 
 plugins.
 
 ### GB Studio example project
-[Shane McCafferty / EGVroom](https://thalamusdigital.itch.io/) has provided an example GBStudio project (under [GBStudioLookUpDemo](GBStudioLookUpDemo) showing how to interface with and use the dictionary. A pre-built example ROM is included in the project under [GBStudioLookUpDemo/build/rom](GBStudioLookUpDemo/build/rom).
+[Shane McCafferty / EGVroom](https://x.com/EGVroom) has provided an example GBStudio project (under [GBStudioLookUpDemo](GBStudioLookUpDemo) showing how to interface with and use the dictionary. A pre-built example ROM is included in the project under [GBStudioLookUpDemo/build/rom](GBStudioLookUpDemo/build/rom).
 
 ### License
 All code is released inther the Unlicense into the public domain, this includes the dictionary and the example GBStudio project.
