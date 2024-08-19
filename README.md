@@ -22,7 +22,7 @@ The whole thing takes about 9 ROM banks.
 There is a matching test dictionary for validation in the example program which takes ~12 ROM banks. The test data is not meant to be included in user programs.
 
 ### Copying dictionary source files
-Copy the contents of the [src/data/](src/data/) directory into the GBStudio `assets/engine/src/data/`.
+Copy the contents of the [src/data/](src/data/) directory into the GBStudio `assets/engine/src/data/` directory.
 
 ### Interfacing with the code
 See the `native_testfunc.c` file for an example under [GBStudioLookUpDemo/assets/engine/src/data/](GBStudioLookUpDemo/assets/engine/src/data/).
