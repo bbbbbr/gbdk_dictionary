@@ -2819,7 +2819,7 @@
                         ],
                         "override": true,
                         "__scriptTabs": "press",
-                        "__collapse": true
+                        "__collapse": false
                     },
                     "children": {
                         "true": [
@@ -3533,48 +3533,14 @@
                                                     {
                                                         "command": "EVENT_COMMENT",
                                                         "args": {
-                                                            "text": "Call function in C",
-                                                            "__collapse": true
-                                                        },
-                                                        "id": "f1c0a5b7-603f-4ed4-a217-02bae77516d3"
-                                                    },
-                                                    {
-                                                        "command": "EVENT_GBVM_SCRIPT",
-                                                        "args": {
-                                                            "script": "VM_CALL_NATIVE b_isThisAWord, _isThisAWord",
-                                                            "__collapse": true
-                                                        },
-                                                        "id": "9680622d-5e4b-43a4-a1d3-f811369ec06c"
-                                                    },
-                                                    {
-                                                        "command": "EVENT_IDLE",
-                                                        "args": {
-                                                            "__collapse": true
-                                                        },
-                                                        "id": "1b0009a4-1d93-449d-b2ba-6e764ae5d37f"
-                                                    },
-                                                    {
-                                                        "command": "EVENT_COMMENT",
-                                                        "args": {
                                                             "text": "Check result",
                                                             "__collapse": true
                                                         },
                                                         "id": "f5e578f4-6bc8-4704-a9f7-c6c64a4ff8b4"
                                                     },
                                                     {
-                                                        "command": "EVENT_IF",
+                                                        "command": "PT_EVENT_IF_WORD_IS_VALID",
                                                         "args": {
-                                                            "condition": {
-                                                                "type": "eq",
-                                                                "valueA": {
-                                                                    "type": "variable",
-                                                                    "value": "0"
-                                                                },
-                                                                "valueB": {
-                                                                    "type": "number",
-                                                                    "value": 1
-                                                                }
-                                                            },
                                                             "__collapseElse": false
                                                         },
                                                         "children": {
@@ -3621,7 +3587,7 @@
                                                                 }
                                                             ]
                                                         },
-                                                        "id": "8660ea5d-b34e-4149-b8a7-b9b02f0fc234"
+                                                        "id": "08eee185-b775-409e-bc41-df905c0befd1"
                                                     }
                                                 ]
                                             },
@@ -4029,7 +3995,7 @@
                         ],
                         "override": true,
                         "__scriptTabs": "press",
-                        "__collapse": true
+                        "__collapse": false
                     },
                     "children": {
                         "true": [
@@ -4098,50 +4064,15 @@
                             {
                                 "command": "EVENT_COMMENT",
                                 "args": {
-                                    "text": "Call function in C",
-                                    "__collapse": true
-                                },
-                                "id": "79938141-4ee0-4e47-bb2d-e713b9c9d59a"
-                            },
-                            {
-                                "command": "EVENT_GBVM_SCRIPT",
-                                "args": {
-                                    "script": "VM_CALL_NATIVE b_isThisAWord, _isThisAWord",
-                                    "__collapse": true
-                                },
-                                "id": "f77a9a4e-6f46-4fc6-b02e-6cc8cf7f7acc"
-                            },
-                            {
-                                "command": "EVENT_IDLE",
-                                "args": {
-                                    "__collapse": true
-                                },
-                                "id": "d7b86d4b-80ba-4d1c-9157-f3821b549ea9"
-                            },
-                            {
-                                "command": "EVENT_COMMENT",
-                                "args": {
                                     "text": "Check result",
                                     "__collapse": true
                                 },
                                 "id": "afae7d66-526d-4c00-83cb-a9efc11caa0a"
                             },
                             {
-                                "command": "EVENT_IF",
+                                "command": "PT_EVENT_IF_WORD_IS_VALID",
                                 "args": {
-                                    "condition": {
-                                        "type": "eq",
-                                        "valueA": {
-                                            "type": "variable",
-                                            "value": "0"
-                                        },
-                                        "valueB": {
-                                            "type": "number",
-                                            "value": 1
-                                        }
-                                    },
-                                    "__collapseElse": false,
-                                    "__collapse": true
+                                    "__collapseElse": false
                                 },
                                 "children": {
                                     "true": [
@@ -4151,7 +4082,7 @@
                                                 "text": "Valid word!",
                                                 "__collapse": true
                                             },
-                                            "id": "808491f3-0a66-4521-9342-0b356c4468d2"
+                                            "id": "446d3a3e-d121-479c-b6bd-02492a7aaf15"
                                         },
                                         {
                                             "command": "EVENT_TEXT",
@@ -4162,7 +4093,7 @@
                                                 "avatarId": "",
                                                 "__collapse": true
                                             },
-                                            "id": "e2ff3d10-64ba-4c8a-bf9b-bcf32592a833"
+                                            "id": "81c424de-27e8-4f62-b7ae-28c036a0b3c8"
                                         }
                                     ],
                                     "false": [
@@ -4172,7 +4103,7 @@
                                                 "text": "Not a word",
                                                 "__collapse": true
                                             },
-                                            "id": "d2be2b7f-09cb-40c3-aa33-23bcfe0127cd"
+                                            "id": "73991fac-9749-4707-9c4d-44e5d3680d81"
                                         },
                                         {
                                             "command": "EVENT_TEXT",
@@ -4183,11 +4114,11 @@
                                                 "avatarId": "",
                                                 "__collapse": true
                                             },
-                                            "id": "31429f18-8b7a-4f2d-b6f6-cd4e7db0f343"
+                                            "id": "ebbfd65f-7a61-4ebc-84f5-1b2773cac08c"
                                         }
                                     ]
                                 },
-                                "id": "73bcd2d2-1b28-40de-b5e8-d56c91512dfe"
+                                "id": "58fc43d4-f4b8-480d-93cd-5b59b86acab3"
                             }
                         ]
                     },
@@ -4578,7 +4509,7 @@
                         "value15": 16,
                         "__collapseElse": false,
                         "__disableElse": true,
-                        "__collapse": true
+                        "__collapse": false
                     },
                     "children": {
                         "true0": [
@@ -4725,7 +4656,7 @@
                         "__collapseCase15": false,
                         "value15": 15,
                         "__collapseElse": false,
-                        "__collapse": true
+                        "__collapse": false
                     },
                     "children": {
                         "true0": [
@@ -6977,8 +6908,8 @@
         "showConnections": true,
         "showCollisionSlopeTiles": false,
         "showCollisionExtraTiles": false,
-        "worldScrollX": 168.3333282470703,
-        "worldScrollY": 54.166664123535156,
+        "worldScrollX": 0,
+        "worldScrollY": 9.5,
         "zoom": 200,
         "sgbEnabled": false,
         "customHead": "",
@@ -7006,9 +6937,9 @@
         "defaultUIPaletteId": "default-ui",
         "playerPaletteId": "",
         "navigatorSplitSizes": [
-            30,
-            510,
-            236
+            205,
+            360,
+            247
         ],
         "showNavigator": true,
         "defaultFontId": "4bd653f0-e08d-424e-9e5b-c1f3aaa21e47",
