@@ -22,7 +22,7 @@ Use the `If is valid word` event to check a word. It calls `isThisAWord()` in [n
 To install the plugin copy the contents of the [plugins directory](GBStudioLookUpDemo/plugins) to the plugins top level folder in your GBStudio project.
 
 ### License
-All code is released inther the Unlicense into the public domain, this includes the dictionary and the example GBStudio project.
+All code is released under the Unlicense into the public domain, this includes the dictionary and the example GBStudio project.
 
 If used in a project attirbution is welcome but not required.
 
