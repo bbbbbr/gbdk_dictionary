@@ -9,7 +9,17 @@ Bank 0 space as possible, since that space is sometimes in short very supply in 
 plugins.
 
 ### GB Studio example project
-[Shane McCafferty / EGVroom](https://x.com/EGVroom) has provided an example GBStudio project (under [GBStudioLookUpDemo](GBStudioLookUpDemo) showing how to interface with and use the dictionary. A pre-built example ROM is included in the project under [GBStudioLookUpDemo/build/rom](GBStudioLookUpDemo/build/rom).
+[Shane McCafferty / EGVroom](https://x.com/EGVroom) provided an example GBStudio project (under [GBStudioLookUpDemo](GBStudioLookUpDemo) showing how to interface with and use the dictionary. A pre-built example ROM is included in the project under [GBStudioLookUpDemo/build/rom](GBStudioLookUpDemo/build/rom).
+
+In this project there are variables $Selection1 .. $Selection6 which store numbers (1-26) representing alphabet letters (a-z).
+
+### Plugin
+[Pautomas](https://github.com/pau-tomas) packaged the dictionary as a plugin so it's easier to integrate with GBStudio: 
+[GBStudioLookUpDemo/plugins/Dictionary](GBStudioLookUpDemo/plugins/Dictionary)
+
+Use the `If is valid word` event to check a word. It calls `isThisAWord()` in [native_testfunc.c](GBStudioLookUpDemo/plugins/Dictionary/engine/src/data/native_testfunc.c)
+
+To install the plugin copy the contents of the [plugins directory](GBStudioLookUpDemo/plugins) to the plugins top level folder in your GBStudio project.
 
 ### License
 All code is released inther the Unlicense into the public domain, this includes the dictionary and the example GBStudio project.
@@ -22,9 +32,5 @@ The whole thing takes about 9 ROM banks.
 There is a matching test dictionary for validation in the example program which takes ~12 ROM banks. The test data is not meant to be included in user programs.
 
 ### Copying dictionary source files
-Copy the contents of the [src/data/](src/data/) directory into the GBStudio `assets/engine/src/data/` directory.
-
-### Interfacing with the code
-See the `native_testfunc.c` file for an example under [GBStudioLookUpDemo/assets/engine/src/data/](GBStudioLookUpDemo/assets/engine/src/data/).
-
+If the dictionary source files are changed then the updated ones can be copied from the [src/data/](src/data/) directory into the GBStudio `plugins/Dictionary/engine/src/data/` directory.
 
