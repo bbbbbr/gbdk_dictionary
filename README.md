@@ -8,6 +8,13 @@ There is lookup function code duplication in the banked sources as a result of t
 Bank 0 space as possible, since that space is sometimes in short very supply in GBStudio projects using
 plugins.
 
+### Usage in a Game
+The dictionary was originally built for use in [Word Forward](https://thalamusdigital.itch.io/word-forward-game-boy) by [Shane McCafferty / EGVroom](https://x.com/EGVroom). 
+
+<img alt="word_forward_pD6jxf" src="https://github.com/user-attachments/assets/c860eec2-a57e-49dc-9373-326f298b7f84">
+
+Screenshot courtesy of the Game's itch io page.
+
 ### GB Studio example project
 [Shane McCafferty / EGVroom](https://x.com/EGVroom) provided an example GBStudio project (under [GBStudioLookUpDemo](GBStudioLookUpDemo) showing how to interface with and use the dictionary. A pre-built example ROM is included in the project under [GBStudioLookUpDemo/build/rom](GBStudioLookUpDemo/build/rom).
 
